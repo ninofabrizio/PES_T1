@@ -1,2 +1,3 @@
 Desejável para a versão final:
 - O mapa para o caminho a percorrer será lido de um arquivo
+- Tentar eliminar variáveis globais (manter as variáveis exlusivamente para o escopo em que são necessárias)
