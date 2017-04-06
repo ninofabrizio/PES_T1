@@ -1,0 +1,2 @@
+Desejável para a versão final:
+- O mapa para o caminho a percorrer será lido de um arquivo
