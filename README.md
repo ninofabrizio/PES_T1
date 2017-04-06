@@ -11,7 +11,9 @@ Para executar:
 - Abrir janela do CMD (Windows) ou Terminal (Linux)
 - Posicionar a linha de comando no endereço onde se encontra o projeto na máquina
 - Digitar "lua AStar.lua"
+
 ou
+
 - Executar o terminal de Lua digitando "Lua"
 - Digitar "dofile('AStar.lua')"
 
