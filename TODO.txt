@@ -1,4 +1,4 @@
 Desejável para a versão final:
-- O mapa para o caminho a percorrer será lido de um arquivo
+- O mapa para o caminho a percorrer ter a opção de ser lido de um arquivo
 - Tentar eliminar variáveis globais (manter as variáveis exlusivamente para o escopo em que são necessárias)
 - Função para gerar muros randômicos pode demorar bastante, seria bom otimizar para obter um tempo menor
