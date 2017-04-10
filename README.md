@@ -17,7 +17,7 @@ O mapa é definido pelos seguintes símbolos:
 - "X" representa o ponto de chegada
 - "W" representa um obstáculo que o algoritmo considera inacessível (como um muro)
 - "." representa um ponto acessível para o algoritmo
-- "v" representa um ponto onde o algoritmo já circulou
+- "v" representa um ponto onde o algoritmo circulou
 
 ------------------------------
 
