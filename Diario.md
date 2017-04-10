@@ -82,3 +82,5 @@ Seguindo a regra de "não inventar nomes", me certifiquei que todas as variávei
 Complementei a documentação do meu código para ampliar a parte do diário, explicando um pouco mais a fundo como o código funciona em execução.
 
 Percebi que o triângulo do conhecimento se aplica no meu projeto. A parte do Conhecimento do Engenheiro de Software é a própria aplicação das regras. O Conhecimento de Aplicação é a própria lógica do que meu programa faz, ele está explicado no arquivo "README.md". O Conhecimento de Máquina é a linguagem Lua, principal ferramenta para criar o código. Para esse último precisei conhecer mais a fundo a linguagem através de documentação e fóruns na internet, principalmente para poder corrigir erros.
+
+Refiz a parte de reenumerar o índice da tabela em "removeFromTable" após perceber problemas com testes em casos específicos. Parece que não dará mais problemas nessa parte.

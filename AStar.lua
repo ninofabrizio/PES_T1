@@ -22,6 +22,7 @@
 --								-Turned global variables into local
 --								-Aplied better names by context to variables
 --								-Complemented documentation
+--								-Correction in index enumeration part in removeFromTable
 
 -- Function that shows the map in the console.
 -- Receives:
@@ -144,7 +145,7 @@ function buildMap( map, height, width, startPoint, finishPoint )
 
     generateRandomWalls(map, heightLimit, widthLimit)
 
-    print("Original map:")
+    print("\nOriginal map:")
     printMap(map, height, width)
 end
 
@@ -277,19 +278,15 @@ function removeFromTable( table, value )
 
 		if removed then
 
-			local jIndex = 0
+			local index = 1
 			
-			for index = 1, #table do
-        		if table[index] ~= nil then
-                	jIndex = jIndex + 1
-                	table[jIndex] = table[index]
-        		else
-        			table[index] = table[index + 1]
-        		end
-			end
-
-			for index = jIndex + 1, #table do
-        		table[index] = nil
+			for key, value in pairs(table) do
+				
+				if key ~= index then
+					table[index] = value
+					table[key] = nil
+				end
+				index = index + 1
 			end
 		end
 	end
