@@ -34,6 +34,16 @@ ou
 
 ------------------------------
 
+Como modificar:
+
+O mapa do programa só é customizável através das seguintes variáveis no código:
+
+- **height**: Se encontra no bloco de execução principal no final do código. Carrega o valor numérico (inteiro) da dimensão vertical do mapa.
+- **width**: Se encontra no bloco de execução principal no final do código. Carrega o valor numérico (inteiro) da dimensão horizontal do mapa.
+- **maxWallNum**: Se encontra na função "generateRandomWalls". Carrega o valor numérico (inteiro) da quantidade total de obstáculos que a função tentará colocar no mapa. Vale ressaltar que quanto maior o número, mais demorada será a criação do mapa.
+
+------------------------------
+
 Referência:
 
 https://github.com/ninofabrizio/Logica/blob/master/src/project/AStar.java

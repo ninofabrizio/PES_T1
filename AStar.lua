@@ -54,7 +54,7 @@ end
 --		Nothing
 function generateRandomWalls( map, heightLimit, widthLimit )
 
-	local maxWallNum = 10
+	local maxWallNum = 20
 
 	-- Just a (bad) way to avoid a possible infinite loop if there's no way to put more walls in the map
 	local maxNumTries = heightLimit * widthLimit
@@ -380,19 +380,20 @@ end
 
 -- Main execution
 local map = {}
-local height = 10
-local width = 10
+local height = 15
+local width = 15
 local startPoint = {}
 local finishPoint = {}
 
+print("\nBuilding map, please wait...")
 buildMap(map, height, width, startPoint, finishPoint)
 
 local path = AStar(map, startPoint, finishPoint)
 
 if next(path) == nil then
-	print("Finish point impossible to reach!")
+	print("\nFinish point impossible to reach!")
 else
-	print("Number of steps: ", (#path - 1))
+	print("\nNumber of steps taken: ", (#path - 1))
 
 	for index = 1, #path do
 		if map[path[index][1]][path[index][2]][1] == '.' then
