@@ -23,6 +23,9 @@
 --								-Aplied better names by context to variables
 --								-Complemented documentation
 --								-Correction in index enumeration part in removeFromTable
+--		6		11/04/2017		-Added a message to be shown in the console to warn when the map is being built
+--								-Modified startPoint and finishPoint
+--								-Updated buildMap to apply modifications above
 
 -- Function that shows the map in the console.
 -- Receives:
@@ -126,14 +129,10 @@ function buildMap( map, height, width, startPoint, finishPoint )
 
     		if jIndex == 1 or jIndex == height or index == 1 or index == width then
         		map[index][jIndex][1] = 'W'
-    		elseif index == heightLimit and jIndex == 2 then
+    		elseif index == startPoint[1] and jIndex == startPoint[2] then
     			map[index][jIndex][1] = 'S'
-    			startPoint[1] = index
-    			startPoint[2] = jIndex
-    		elseif index == 2 and jIndex == widthLimit then
+    		elseif index == finishPoint[1] and jIndex == finishPoint[2] then
     			map[index][jIndex][1] = 'X'
-    			finishPoint[1] = index
-    			finishPoint[2] = jIndex
     		else
     			map[index][jIndex][1] = '.'
     		end
@@ -344,9 +343,9 @@ function AStar( map, startPoint, finishPoint )
 
 		for index = 1, #neighbors do
 
-			local nextDistanteFromStartPoint = map[currentPosition[1]][currentPosition[2]].DistanteFromStartPoint + 1
+			local nextDistanceFromStartPoint = map[currentPosition[1]][currentPosition[2]].DistanteFromStartPoint + 1
 
-			if nextDistanteFromStartPoint < map[neighbors[index][1]][neighbors[index][2]].DistanteFromStartPoint then
+			if nextDistanceFromStartPoint < map[neighbors[index][1]][neighbors[index][2]].DistanteFromStartPoint then
 
 				removeFromTable(open, neighbors[index])
 				removeFromTable(closed, neighbors[index])
@@ -354,7 +353,7 @@ function AStar( map, startPoint, finishPoint )
 
 			if not tableContains(open, neighbors[index]) and not tableContains(closed, neighbors[index]) then
 
-				map[neighbors[index][1]][neighbors[index][2]].DistanteFromStartPoint = nextDistanteFromStartPoint
+				map[neighbors[index][1]][neighbors[index][2]].DistanteFromStartPoint = nextDistanceFromStartPoint
 				map[neighbors[index][1]][neighbors[index][2]].Heuristic = estimateDistance(neighbors[index], finishPoint)
 				map[neighbors[index][1]][neighbors[index][2]].DistanteToFinishPoint = map[neighbors[index][1]][neighbors[index][2]].DistanteFromStartPoint + map[neighbors[index][1]][neighbors[index][2]].Heuristic
 				map[neighbors[index][1]][neighbors[index][2]].Parent = {}
@@ -383,7 +382,11 @@ local map = {}
 local height = 15
 local width = 15
 local startPoint = {}
+startPoint[1] = height - 1
+startPoint[2] = 2
 local finishPoint = {}
+finishPoint[1] = 2
+finishPoint[2] = width - 1
 
 print("\nBuilding map, please wait...")
 buildMap(map, height, width, startPoint, finishPoint)
